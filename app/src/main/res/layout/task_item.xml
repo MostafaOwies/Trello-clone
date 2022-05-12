@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainCard"
+    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="5dp"
+    android:layout_margin="@dimen/dp15">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+       <LinearLayout
+           app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+           <Button
+               android:id="@+id/addTaskTitleTV"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_margin="@dimen/dp15"
+               android:gravity="center"
+               android:textAllCaps="false"
+               android:textSize="@dimen/sp18"
+               android:text="@string/add_list"
+               style="?attr/materialButtonOutlinedStyle"
+               />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/listNameCV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/task_item_cv_margin"
+                android:elevation="@dimen/task_item_cv_elevation"
+                android:visibility="gone"
+                app:cardCornerRadius="5dp"
+                tools:visibility="visible">
+                <LinearLayout
+                    android:id="@+id/listNameLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/cancelListIB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:contentDescription="@string/image_contentDescription"
+                        android:padding="@dimen/dp15"
+                        android:src="@drawable/ic_cancel" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/listNameETLayout"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        app:errorEnabled="true"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_list_name"
+                        android:autofillHints="@string/hint_list_name">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/listNameET"
+                            android:inputType="text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <ImageButton
+                        android:id="@+id/listNameDoneIB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:contentDescription="@string/image_contentDescription"
+                        android:padding="@dimen/dp15"
+                        android:src="@drawable/ic_done" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:id="@+id/taskItemLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/taskTitleLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+                    tools:visibility="visible">
+                    <TextView
+                        android:id="@+id/taskTitleTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/dp15"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="16sp"
+                        tools:text="Title" />
+
+                    <ImageButton
+                        android:id="@+id/editListNameIB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:contentDescription="@string/image_contentDescription"
+                        android:padding="@dimen/dp15"
+                        android:src="@drawable/ic_edit" />
+
+                    <ImageButton
+                        android:id="@+id/deleteListIB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:contentDescription="@string/image_contentDescription"
+                        android:padding="@dimen/dp15"
+                        android:src="@drawable/ic_delete" />
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/editListNameCV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/task_item_cv_margin"
+                    android:elevation="@dimen/task_item_cv_elevation"
+                    android:visibility="gone"
+                    app:cardCornerRadius="5dp"
+                    tools:visibility="visible">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/cancelEditListIB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:contentDescription="@string/image_contentDescription"
+                            android:padding="@dimen/dp15"
+                            android:src="@drawable/ic_cancel" />
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/EditListNameETLayout"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            app:errorEnabled="true"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="@string/hint_list_name"
+                            android:hint="@string/hint_list_name">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/EditListNameET"
+                                android:inputType="text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <ImageButton
+                            android:id="@+id/editListNameDoneIB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:contentDescription="@string/image_contentDescription"
+                            android:padding="@dimen/dp15"
+                            android:src="@drawable/ic_done" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cardListRV"
+                    android:layout_width="match_parent"
+                    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dp15" />
+
+                <com.google.android.material.card.MaterialCardView
+        android:id="@+id/editCardNameCV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/task_item_cv_margin"
+        android:elevation="@dimen/task_item_cv_elevation"
+        android:visibility="gone"
+        app:cardCornerRadius="5dp"
+        tools:visibility="visible">
+        <LinearLayout
+            android:id="@+id/cardNameLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:elevation="@dimen/task_item_cv_elevation"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/cancelCardNameIB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/image_contentDescription"
+                android:padding="@dimen/dp15"
+                android:src="@drawable/ic_cancel" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cardNameETLayout"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                app:errorEnabled="true"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/hint_card_name"
+                android:hint="@string/CardName">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cardNameET"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <ImageButton
+                android:id="@+id/editCardNameDoneIB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/image_contentDescription"
+                android:padding="@dimen/dp15"
+                android:src="@drawable/ic_done" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+                <Button
+                    android:id="@+id/addCardTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp15"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/sp18"
+                    android:text="@string/addCard"
+                    style="?attr/materialButtonOutlinedStyle"
+                    tools:visibility="visible"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    </com.google.android.material.card.MaterialCardView>

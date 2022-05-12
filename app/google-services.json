@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "898554965338",
+    "project_id": "managerpro-ac305",
+    "storage_bucket": "managerpro-ac305.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898554965338:android:6b25da2d4aa811c9675763",
+        "android_client_info": {
+          "package_name": "com.example.managerpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "898554965338-mev8egcptur9l7thmued5ga53fgdj63k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.managerpro",
+            "certificate_hash": "cd9e86c75a06147464a98678fc20babcec622144"
+          }
+        },
+        {
+          "client_id": "898554965338-unj3avuj64dr3rke2cgj3cqokevgi1u3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6wj9mHZYwIqSyrPpCT1VNwyjmh9bGz6c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "898554965338-unj3avuj64dr3rke2cgj3cqokevgi1u3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

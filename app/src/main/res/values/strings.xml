@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">ManagerPro</string>
+    <string name="managerPro">ManagerPro</string>
+    <string name="splashscreenbackground">SplashScreenBackground</string>
+    <string name="sign_in">Sign In</string>
+    <string name="image_contentDescription">Intro Screen Image</string>
+    <string name="let_s_get_started_text">Let\'s get started</string>
+    <string name="intro_text_description">Collaborate and Plan Together Across Multiple Devices on ManagerPro’s Minimalist Interface.</string>
+    <string name="register_with_us_now">Register with us now</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in_toolbatTitle">Sign In</string>
+    <string name="logintext">Login and manage your projects</string>
+    <string name="sign_in_BTN">Sign In</string>
+    <string name="pleas_wait">Please Wait</string>
+    <string name="Username_error">Enter your Username!!</string>
+    <string name="Email_error">Enter your Email!!</string>
+    <string name="Password_error">Enter your Password!!</string>
+    <string name="top_app_bar">Top app bar</string>
+    <string name="user_profile_photo_imageview">User Profile Photo ImageView</string>
+    <string name="nav_my_profile">My Profile</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="fab_content_desc">fab for a new board</string>
+    <string name="create_board">Create board</string>
+    <string name="boardname">Board Name</string>
+    <string name="baordnamerror">Board name can\'t be empty!</string>
+    <string name="board_item_image">board item image</string>
+    <string name="createdby">Created By: </string>
+    <string name="myprofile">My Profile</string>
+    <string name="boardTitle">Board Title</string>
+    <string name="action_add_list">Add List</string>
+    <string name="hint_list_name">List Name</string>
+    <string name="hint_card_name">Card Name</string>
+    <string name="action_add_card">Add Card</string>
+    <string name="addCard">Add Card</string>
+    <string name="CardName">Card Name</string>
+    <string name="add_list">Add List</string>
+
+</resources>

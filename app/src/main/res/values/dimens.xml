@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="Splash_title">70sp</dimen>
+    <dimen name="intro_screen_title_text_size">40sp</dimen>
+    <dimen name="global_margin">5dp</dimen>
+    <dimen name="nav_image_size">80dp</dimen>
+    <dimen name="margin_start_end">16dp</dimen>
+    <dimen name="image_border_width">1dp</dimen>
+    <dimen name="nav_content_margin_top">5dp</dimen>
+    <dimen name="nav_content_margin_bottom">10dp</dimen>
+    <dimen name="nav_user_name_text_size">16sp</dimen>
+    <dimen name="margin_top_profile">50dp</dimen>
+    <dimen name="dp15">15dp</dimen>
+    <dimen name="sp18">18sp</dimen>
+    <dimen name="sp14">14sp</dimen>
+    <dimen name="dp3">.5dp</dimen>
+    <dimen name="task_item_add_item_text_size">18sp</dimen>
+    <dimen name="task_item_cv_margin">5dp</dimen>
+    <dimen name="task_item_cv_elevation">5dp</dimen>
+</resources>

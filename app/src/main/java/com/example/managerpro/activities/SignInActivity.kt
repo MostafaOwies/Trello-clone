@@ -18,27 +18,29 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class SignInActivity (private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO): BaseActivity() {
-    private var binding:ActivitySignInBinding?=null
+class SignInActivity(private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO) :
+    BaseActivity() {
+    private var binding: ActivitySignInBinding? = null
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivitySignInBinding.inflate(layoutInflater)
+        binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
         auth = Firebase.auth
 
-        val email=binding?.signInEmailET
-        val password=binding?.signInPasswordET
+
+        val email = binding?.signInEmailET
+        val password = binding?.signInPasswordET
 
         email?.doOnTextChanged { text, _, _, _ ->
-            if (text!!.isNotEmpty() ){
-                binding?.signInEmailETLayout?.error=null
+            if (text!!.isNotEmpty()) {
+                binding?.signInEmailETLayout?.error = null
             }
         }
         password?.doOnTextChanged { text, _, _, _ ->
-            if (text!!.isNotEmpty() ){
-                binding?.signInPasswordETLayout?.error=null
+            if (text!!.isNotEmpty()) {
+                binding?.signInPasswordETLayout?.error = null
             }
         }
 
@@ -49,7 +51,7 @@ class SignInActivity (private val ioDispatcher: CoroutineDispatcher = Dispatcher
         }
 
         setSupportActionBar(binding?.signInToolbar)
-        if (supportActionBar!=null){
+        if (supportActionBar != null) {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
         binding?.signInToolbar?.setNavigationOnClickListener {
@@ -57,51 +59,52 @@ class SignInActivity (private val ioDispatcher: CoroutineDispatcher = Dispatcher
         }
     }
 
-    fun signInSuccessfully(user:User){
+    fun signInSuccessfully(user: User) {
 
         hideProgressDialog()
-        val intent=Intent(this,MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
         Toast.makeText(this, "Signed In successfully", Toast.LENGTH_SHORT).show()
     }
 
-    private suspend fun signInUser(){
+    private suspend fun signInUser() {
 
-        val email=binding?.signInEmailET?.text
-        val password=binding?.signInPasswordET?.text
-        val stringEmail :String=email.toString().trim{it<=' '}
-        val stringPassword :String=password.toString().trim{it<=' '}
+        val email = binding?.signInEmailET?.text
+        val password = binding?.signInPasswordET?.text
+        val stringEmail: String = email.toString().trim { it <= ' ' }
+        val stringPassword: String = password.toString().trim { it <= ' ' }
 
-        when{
-            stringEmail.isEmpty()->{
-                binding?.signInEmailETLayout?.error=getString(R.string.Email_error)
+        when {
+            stringEmail.isEmpty() -> {
+                binding?.signInEmailETLayout?.error = getString(R.string.Email_error)
             }
-            stringPassword.isEmpty()->{
-                binding?.signInPasswordETLayout?.error=getString(R.string.Password_error)
-            }else->{
-            showProgressDialog(resources.getString(R.string.pleas_wait))
-            withContext(ioDispatcher){
-                auth.signInWithEmailAndPassword(stringEmail,stringPassword).addOnCompleteListener(this@SignInActivity){
-                        task->
-                    if (task.isSuccessful){
-                        lifecycleScope.launch {
-                            FireStoreClass().loadUserData(this@SignInActivity)
+            stringPassword.isEmpty() -> {
+                binding?.signInPasswordETLayout?.error = getString(R.string.Password_error)
+            }
+            else -> {
+                showProgressDialog(resources.getString(R.string.pleas_wait))
+                withContext(ioDispatcher) {
+                    auth.signInWithEmailAndPassword(stringEmail, stringPassword)
+                        .addOnCompleteListener(this@SignInActivity) { task ->
+                            if (task.isSuccessful) {
+                                lifecycleScope.launch {
+                                    FireStoreClass().loadUserData(this@SignInActivity)
+                                }
+                            } else {
+                                runOnUiThread {
+                                    showErrorSnackBar(task.exception!!.message.toString())
+                                    hideProgressDialog()
+                                }
+                            }
                         }
-                    } else{
-                        runOnUiThread {
-                            showErrorSnackBar(task.exception!!.message.toString())
-                            hideProgressDialog()
-                        }
-                    }
                 }
-            }
             }
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        binding=null
+        binding = null
     }
 }
